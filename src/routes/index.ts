@@ -1,10 +1,11 @@
 import { Router } from "express";
+import adminLogin from "./adminLogin";
 
 const router = Router();
 
-// Health check route
-router.get("/health", (_, res) => {
-  res.json({ status: "ok", uptime: process.uptime() });
-});
 
+router.get("/health", (_req, res) => res.json({ status: "ok", uptime: process.uptime() }));
+router.use("/admin", adminLogin);
 export default router;
+
+
