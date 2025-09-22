@@ -7,4 +7,8 @@ const router = Router();
 router.use("/auth", authRoutes);
 router.use("/teacher", teacherRoutes); 
 
+router.get("/health", (_req, res) => res.json({ status: "ok", uptime: process.uptime() }));
+router.use("/admin", adminLogin);
 export default router;
+
+
