@@ -1,10 +1,10 @@
 import { Router } from "express";
+import authRoutes from "./authRoutes";
+import teacherRoutes from "./teacherRoutes";
 
 const router = Router();
 
-// Health check route
-router.get("/health", (_, res) => {
-  res.json({ status: "ok", uptime: process.uptime() });
-});
+router.use("/auth", authRoutes);
+router.use("/teacher", teacherRoutes); 
 
 export default router;
